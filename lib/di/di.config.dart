@@ -16,6 +16,7 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../data/datasources/api_service.dart' as _i630;
 import '../domain/repositories/random_advice_repository.dart' as _i747;
+import '../presentation/blocs/random_advice/random_advice_cubit.dart' as _i194;
 import '../repositories/random_advice_repository_impl.dart' as _i1050;
 import 'register_module.dart' as _i291;
 
@@ -34,6 +35,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i747.RandomAdviceRepository>(
       () =>
           _i1050.RandomAdviceRepositoryImpl(apiService: gh<_i630.ApiService>()),
+    );
+    gh.factory<_i194.RandomAdviceCubit>(
+      () => _i194.RandomAdviceCubit(
+        randomAdviceRepository: gh<_i747.RandomAdviceRepository>(),
+      ),
     );
     return this;
   }

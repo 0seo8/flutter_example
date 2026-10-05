@@ -1,0 +1,15 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude: 
+    - build/**
+    - .dart_tool/**
+    - lib/generated_plugin_registrant.dart
+    - "**/*.g.dart"
+    - "**/*.config.dart"
+
+linter:
+  rules:
+    avoid_print: false
+    prefer_relative_imports: true
+    sort_constructors_first: true
